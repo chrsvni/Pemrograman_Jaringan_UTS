@@ -93,6 +93,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         }
     }
 
+    private void checkFood() {
+        if (x[0] == foodX && y[0] == foodY) {
+            // Snake eats the food
+            length++;
+            score++;
+            placeFood();
+        }
+    }
+    
     private void paintSnake(Graphics g) {
         g.setColor(Color.GREEN);
         for (int i = 0; i < length; i++) {
@@ -102,6 +111,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     private void paintFood(Graphics g) {
         // Implement food drawing logic here
+    }
+
+    private void paintFood(Graphics g) {
+        g.setColor(Color.RED);
+        g.fillRect(foodX, foodY, TILE_SIZE, TILE_SIZE);
+    }
+
+    private void paintScore(Graphics g) {
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 16));
+        g.drawString("Score: " + score, 10, 20);
     }
 
     private void gameOver(Graphics g) {
