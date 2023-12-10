@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
     private static final int TILE_SIZE = 20;
@@ -12,7 +13,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     private int length;
     private char direction;
     private boolean running;
+    private int foodX, foodY;
     private Timer timer;
+    private int score;
 
     public GamePanel() {
         setPreferredSize(new Dimension(TILE_SIZE * GRID_SIZE, TILE_SIZE * GRID_SIZE));
@@ -34,8 +37,24 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
             y[i] = TILE_SIZE * GRID_SIZE / 2;
         }
 
+        placeFood();
+
         timer = new Timer(100, this);
         timer.start();
+    }
+
+    private void placeFood() {
+        Random random = new Random();
+        foodX = random.nextInt(GRID_SIZE) * TILE_SIZE;
+        foodY = random.nextInt(GRID_SIZE) * TILE_SIZE;
+
+        // Make sure the food is not placed on the snake
+        for (int i = 0; i < length; i++) {
+            if (foodX == x[i] && foodY == y[i]) {
+                placeFood();
+                return;
+            }
+        }
     }
 
     private void move() {
