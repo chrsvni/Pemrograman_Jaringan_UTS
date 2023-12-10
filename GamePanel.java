@@ -47,8 +47,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         Random random = new Random();
         foodX = random.nextInt(GRID_SIZE) * TILE_SIZE;
         foodY = random.nextInt(GRID_SIZE) * TILE_SIZE;
-
-        // Make sure the food is not placed on the snake
+        
         for (int i = 0; i < length; i++) {
             if (foodX == x[i] && foodY == y[i]) {
                 placeFood();
@@ -95,7 +94,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
     private void checkFood() {
         if (x[0] == foodX && y[0] == foodY) {
-            // Snake eats the food
             length++;
             score++;
             placeFood();
@@ -103,19 +101,23 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     }
     
     private void paintSnake(Graphics g) {
-        // Paint head with a different color
         g.setColor(Color.GREEN);
         g.fillRect(x[0], y[0], TILE_SIZE, TILE_SIZE);
-
-        // Paint body
         g.setColor(Color.GREEN.darker());
         for (int i = 1; i < length; i++) {
             g.fillRect(x[i], y[i], TILE_SIZE, TILE_SIZE);
         }
     }
 
-    private void paintFood(Graphics g) {
-        // Implement food drawing logic here
+     private void paintFood(Graphics g) {
+        g.setColor(Color.RED);
+        g.fillRect(foodX, foodY, TILE_SIZE, TILE_SIZE);
+    }
+
+    private void paintScore(Graphics g) {
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 16));
+        g.drawString("Score: " + score, 10, 20);
     }
 
     private void gameOver(Graphics g) {
@@ -131,6 +133,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         g.drawString(gameOverText, centerX, centerY - 30);
         g.drawString(scoreText, centerX, centerY);
         g.drawString(restartText, centerX, centerY + 30);
+    }
+
+    private void restartGame() {
+        initializeGame();
+        repaint();
     }
 
     @Override
