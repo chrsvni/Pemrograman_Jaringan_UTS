@@ -1,16 +1,48 @@
-# Pemrograman Jaringan UTS
-Repo ini dibuat untuk memenuhi tugas UTS Mata Kuliah Pemrograman Jaringan
+# UTS Project Program Jaringan 
 
-Dalam project ini, kami membuat satu game yaitu game ular sederhana menggunakan bahasa pemrograman java
+# Project pemrograman jaringan dari kelompok Cheria, Itri, Marsha
+Nama;  Cheria Sevani NIM; 362201017
+Nama;  Itri Fallo NIM; 362001015
+Nama;  Marsha NIM; 362201009
 
-Tugas Ini disusun oleh:
+# Nama Proyek
 
-Cheria Sevani = Dokumentasi
+Membuat Game ular dari Java
 
-Itri Fallo = GamePanel.java
+## Daftar Isi
 
-Marsha = SnakeGame.java dan GameFrame.java
+- [Instalasi](#instalasi)
+- [Cara menjalankan game](#cara-menjalankan-game)
+- [Kontribusi](#kontribusi)
 
-Untuk menjalankan game yang sudah dibuat diatas yaitu, pertama masukkan dulu tiga file yaitu Snakegame.java, GamePanel.java dan GameFrame.java dalam satu folder. Kemudian buka folder pada aplikasi seperti visual studio code, intellij idea dan sejenisnya. 
+## Instalasi
 
-Program dijalankan dengan run pada file SnakeGame.java
+1. Pastikan Java Development Kit (JDK) telah terinstal di komputer Anda. Anda dapat mengunduhnya dari [situs resmi Oracle](https://www.oracle.com/java/technologies/javase-downloads.html).
+
+2. Clone repositori ini ke komputer Anda:
+
+   ```bash
+   git clone https://github.com/chrsvni/Pemrograman_Jaringan_UTS.git
+   cd nama-proyek
+
+## Cara menjalankan game
+
+1. instal repo game dalam bentuk zip
+
+2. setelah extrak zip dalam satu folder
+
+3. buka folder pada aplikasi seperti visual studio code, intellij idea dan sejenisnya.
+
+4. run program pada file SnakeGame.java
+
+5. permainan siap dimainkan
+
+## Kontribusi
+
+-Program SnakeGame.java oleh Marsha
+
+-Program GameFrame.java oleh Marsha
+
+-Program GamePanel.java oleh Itri dan Cheria
+
+-Dokumentasi oleh Cheria
